@@ -13,13 +13,13 @@
 #include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(noParticles) {
-    NB::Universe universe("tests/0body.txt");
+    NB::Universe universe("Test Files/0body.txt");
     BOOST_CHECK_EQUAL(universe.numPlanets(), 0);
     BOOST_CHECK_CLOSE(universe.radius(), 100.0, 0.001);
 }
 
 BOOST_AUTO_TEST_CASE(oneParticle) {
-    NB::Universe universe("tests/1body.txt");
+    NB::Universe universe("Test Files/1body.txt");
     BOOST_CHECK_EQUAL(universe.numPlanets(), 1);
     BOOST_CHECK_CLOSE(universe.radius(), 100.0, 0.001);
 
@@ -31,7 +31,7 @@ BOOST_AUTO_TEST_CASE(oneParticle) {
 }
 
 BOOST_AUTO_TEST_CASE(oneParticleFromStream) {
-    std::ifstream fin("tests/1body.txt");
+    std::ifstream fin("Test Files/1body.txt");
     NB::Universe universe;
     fin >> universe;
     BOOST_CHECK_EQUAL(universe.numPlanets(), 1);
@@ -45,7 +45,7 @@ BOOST_AUTO_TEST_CASE(oneParticleFromStream) {
 }
 
 BOOST_AUTO_TEST_CASE(threeParticles) {
-    NB::Universe universe("tests/3body.txt");
+    NB::Universe universe("Test Files/3body.txt");
     BOOST_CHECK_EQUAL(universe.numPlanets(), 3);
     BOOST_CHECK_CLOSE(universe.radius(), 1.25e11, 0.001);
 
@@ -69,7 +69,7 @@ BOOST_AUTO_TEST_CASE(threeParticles) {
 }
 
 BOOST_AUTO_TEST_CASE(insertionTest) {
-    std::ifstream fin("tests/1body.txt");
+    std::ifstream fin("Test Files/1body.txt");
     NB::Universe universe;
     fin >> universe;
     BOOST_REQUIRE_EQUAL(universe.numPlanets(), 1);
@@ -106,7 +106,7 @@ BOOST_AUTO_TEST_CASE(insertionTest) {
 }
 
 BOOST_AUTO_TEST_CASE(motionless) {
-    std::ifstream fin("tests/motionless.txt");
+    std::ifstream fin("Test Files/motionless.txt");
     NB::Universe universe;
     fin >> universe;
     BOOST_REQUIRE_EQUAL(universe.numPlanets(), 1);
@@ -126,7 +126,7 @@ BOOST_AUTO_TEST_CASE(motionless) {
 }
 
 BOOST_AUTO_TEST_CASE(simpleMotion) {
-    std::ifstream fin("tests/simpleMotion.txt");
+    std::ifstream fin("Test Files/simpleMotion.txt");
     NB::Universe universe;
     fin >> universe;
     BOOST_REQUIRE_EQUAL(universe.numPlanets(), 1);
@@ -152,7 +152,7 @@ BOOST_AUTO_TEST_CASE(simpleMotion) {
 }
 
 BOOST_AUTO_TEST_CASE(horizontalGravity) {
-    std::ifstream fin("tests/horizontalGravity.txt");
+    std::ifstream fin("Test Files/horizontalGravity.txt");
     NB::Universe universe;
     fin >> universe;
     BOOST_REQUIRE_EQUAL(universe.numPlanets(), 2);
@@ -183,7 +183,7 @@ BOOST_AUTO_TEST_CASE(horizontalGravity) {
 }
 
 BOOST_AUTO_TEST_CASE(verticalGravity) {
-    std::ifstream fin("tests/verticalGravity.txt");
+    std::ifstream fin("Test Files/verticalGravity.txt");
     NB::Universe universe;
     fin >> universe;
     BOOST_REQUIRE_EQUAL(universe.numPlanets(), 2);
@@ -214,7 +214,7 @@ BOOST_AUTO_TEST_CASE(verticalGravity) {
 }
 
 BOOST_AUTO_TEST_CASE(parallelVelocity) {
-    std::ifstream fin("tests/parallelVelocity.txt");
+    std::ifstream fin("Test Files/parallelVelocity.txt");
     NB::Universe universe;
     fin >> universe;
     BOOST_REQUIRE_EQUAL(universe.numPlanets(), 3);
