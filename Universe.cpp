@@ -95,9 +95,9 @@ std::shared_ptr<sf::Texture> Universe::getTexture(const std::string& file_name) 
     // if the texture from file_name is not in the map
     if (!_textures.count(file_name)) {
         _textures[file_name] = std::make_shared<sf::Texture>();
-        // Check base directory for file first and then sub directory
-        if (!_textures[file_name]->loadFromFile(file_name) &&
-            !_textures[file_name]->loadFromFile(image_dir + file_name)) {
+        // Check sub directory for file first and then base directory
+        if (!_textures[file_name]->loadFromFile(image_dir + file_name) &&
+            !_textures[file_name]->loadFromFile(file_name)) {
             // throw std::invalid_argument("Error: file '" + file_name + "' could not be found");
             std::cout << "Error: file '" << file_name << "' could not be found" << std::endl;
         }
