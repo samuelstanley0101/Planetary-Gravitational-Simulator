@@ -23,11 +23,6 @@ int main(int argc, char* argv[]) {
     sf::VideoMode mode(800, 800);
     sf::RenderWindow window(mode, "NBody Simulation");
 
-    // begin playing music
-    sf::Music music;
-    music.openFromFile(music_file);
-    music.play();
-
     double time_passed = 0;
 
     while (window.isOpen()) {
